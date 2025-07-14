@@ -42,7 +42,8 @@
     background-color: #e8eaed;
 }
 
-.top, .bottom {
+.top,
+.bottom {
     display: grid;
     gap: 0.5rem;
     -ms-flex-line-pack: start;
@@ -112,6 +113,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -121,6 +123,7 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
