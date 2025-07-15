@@ -149,52 +149,49 @@ const Main = () => {
     };
 
     return (
-        <main className="main">
-            <nav className="nav">
+        <main className="main bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+            <nav className="nav bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
                 <p>Gemini</p>
                 <img src={assets.user_icon} alt="" />
             </nav>
             <div className="main-container">
                 {messages.length === 0 ? (
                     <>
-                        <div className="greet text-black">
+                        <div className="greet text-gray-400 dark:text-gray-300">
                             <p><span>Hello, Dev</span></p>
                             <p>How can I help you today?</p>
                         </div>
-                        <div className="cards">
-                            <div className="card"
-                                onClick={() => setInput("Suggest beautiful places to see on an upcoming road trip")}>
-                                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                        <div className="cards bg-transparent dark:bg-transparent">
+                            <div className="card bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700" onClick={() => setInput("Suggest beautiful places to see on an upcoming road trip")}>
+                                <p className="text-gray-700 dark:text-gray-200">Suggest beautiful places to see on an upcoming road trip</p>
                                 <img src={assets.compass_icon} alt="" />
                             </div>
-                            <div className="card"
-                                onClick={() => setInput("Briefly summarize this concept: urban planning")}>
-                                <p>Briefly summarize this concept: urban planning</p>
+                            <div className="card bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700" onClick={() => setInput("Briefly summarize this concept: urban planning")}>
+                                <p className="text-gray-700 dark:text-gray-200">Briefly summarize this concept: urban planning</p>
                                 <img src={assets.bulb_icon} alt="" />
                             </div>
-                            <div className="card"
-                                onClick={() => setInput("Brainstorm team bonding activities for our work retreat")}>
-                                <p>Brainstorm team bonding activities for our work retreat</p>
+                            <div className="card bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700" onClick={() => setInput("Brainstorm team bonding activities for our work retreat")}>
+                                <p className="text-gray-700 dark:text-gray-200">Brainstorm team bonding activities for our work retreat</p>
                                 <img src={assets.message_icon} alt="" />
                             </div>
-                            <div className="card" onClick={() => setInput("Tell me about React js and React native")}>
-                                <p>Tell me about React js and React native</p>
+                            <div className="card bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700" onClick={() => setInput("Tell me about React js and React native")}>
+                                <p className="text-gray-700 dark:text-gray-200">Tell me about React js and React native</p>
                                 <img src={assets.code_icon} alt="" />
                             </div>
                         </div>
                     </>
                 ) : (
-                    <div className='result' ref={resultRef} style={{ overflowY: 'auto', maxHeight: '60vh', minHeight: 200 }}>
+                    <div className='result bg-white dark:bg-gray-900' ref={resultRef} style={{ overflowY: 'auto', maxHeight: '60vh', minHeight: 200 }}>
                         {hasMore && (
                             <div style={{ textAlign: 'center', padding: 8, color: '#888' }}>
                                 {loadingMore ? 'Loading more...' : 'Scroll up to load more'}
                             </div>
                         )}
                         {messages.map((msg) => (
-                            <div key={msg.id} className={`result-title ${msg.sender === 'user' ? 'user' : 'ai'}`} style={{ marginBottom: 8 }}>
+                            <div key={msg.id} className={`result-title ${msg.sender === 'user' ? 'user' : 'ai'} bg-transparent`} style={{ marginBottom: 8 }}>
                                 <img src={msg.sender === 'user' ? assets.user_icon : assets.gemini_icon} alt="" />
                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                    <p>{msg.text}</p>
+                                    <p className="text-gray-900 dark:text-white">{msg.text}</p>
                                     {msg.image && (
                                         <img src={msg.image} alt="uploaded" style={{ maxWidth: 180, maxHeight: 120, borderRadius: 8, marginTop: 4 }} />
                                     )}
@@ -203,7 +200,7 @@ const Main = () => {
                             </div>
                         ))}
                         {aiTyping && (
-                            <div className="result-title ai" style={{ marginBottom: 8 }}>
+                            <div className="result-title ai bg-transparent" style={{ marginBottom: 8 }}>
                                 <img src={assets.gemini_icon} alt="" />
                                 <div className="skeleton-loader" style={{ width: '120px', height: '18px', background: '#eee', borderRadius: 4 }} />
                                 <span style={{ fontSize: '0.8em', color: '#888', marginLeft: 8 }}>Gemini is typing...</span>
@@ -211,8 +208,8 @@ const Main = () => {
                         )}
                     </div>
                 )}
-                <div className="main-bottom">
-                    <div className="search-box">
+                <div className="main-bottom bg-white dark:bg-gray-900">
+                    <div className="search-box bg-gray-100 dark:bg-gray-800">
                         <textarea rows={rows} onChange={(e) => setInput(e.target.value)}
                             onKeyUp={(e) => {
                                 if (e.key === 'Enter') {
@@ -223,6 +220,7 @@ const Main = () => {
                             type="text"
                             placeholder="Enter a prompt here"
                             disabled={aiTyping}
+                            className="text-gray-900 dark:text-white bg-transparent"
                         />
                         <div className="icon-container">
                             <label style={{ cursor: 'pointer' }}>
@@ -239,9 +237,9 @@ const Main = () => {
                             </div>
                         )}
                     </div>
-                    <p className="bottom-info">
+                    <p className="bottom-info text-gray-700 dark:text-gray-300">
                         Gemini may display inaccurate info, including about people, so double-check its responses.
-                        <a href="#">Your privacy and Gemini Apps</a>
+                        <a href="#" className="text-blue-600 dark:text-blue-400">Your privacy and Gemini Apps</a>
                     </p>
                 </div>
             </div>

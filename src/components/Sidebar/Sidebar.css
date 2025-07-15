@@ -1,13 +1,18 @@
+:root {
+    --hover-color-light: #a7c7e7; /* Light blue for light mode */
+    --hover-color-dark: #5c5cc0;  /* Original blue for dark mode */
+}
 .sidebar {
     min-height: 100svh;
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #f0f4f9;
+    /* background-color: #f0f4f9; */
     padding: 25px 15px;
     transition: width 0.15s ease, padding 0.3s ease;
     z-index: 999;
     user-select: none;
+    position: relative; 
 }
 
 @media (max-width: 800px) {
@@ -38,8 +43,12 @@
     border-radius: 100svh;
 }
 
-.menu:hover {
-    background-color: #e8eaed;
+.sidebar .menu:hover {
+    background-color: var(--hover-color-light);
+}
+
+.dark .sidebar .menu:hover {
+    background-color: var(--hover-color-dark);
 }
 
 .top,
@@ -58,7 +67,7 @@
     align-items: center;
     gap: 10px;
     padding: 10px 15px;
-    background-color: #e6eaf1;
+    /* background-color: #e6eaf1; */
     border-radius: 50px;
     font-size: 14px;
     color: #505050;
@@ -66,7 +75,11 @@
 }
 
 .new-chat:hover {
-    background-color: #e0e0e5;
+    background-color: var(--hover-color-light);
+}
+
+.dark .new-chat:hover {
+    background-color: var(--hover-color-dark);
 }
 
 .new-chat {
@@ -91,8 +104,13 @@
 }
 
 .sidebar .recent-entry:hover {
-    background-color: #e2e6eb;
+    background-color: var(--hover-color-light);
 }
+
+.dark .sidebar .recent-entry:hover {
+    background-color: var(--hover-color-dark);
+}
+
 
 .fade {
     transition: opacity 1s ease;
@@ -157,4 +175,15 @@
 .recent-entry-p {
     white-space: nowrap;
     overflow: hidden;
+}
+
+.settings-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
 }

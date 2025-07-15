@@ -107,6 +107,11 @@ body {
 .search-box img {
     width: 24px;
     cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(50%) sepia(50%) saturate(500%) hue-rotate(180deg);
+}
+
+body.dark-mode .search-box img {
+    filter: brightness(0) saturate(100%) invert(1); /* Inverts icon for better visibility in dark mode */
 }
 
 .search-box textarea {

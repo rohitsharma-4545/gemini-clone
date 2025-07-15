@@ -99,7 +99,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 w-full">
       <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Sign In / Sign Up</h2>
         {!otpSent && !otpSentState ? (
